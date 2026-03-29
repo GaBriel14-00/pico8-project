@@ -1,9 +1,29 @@
-# pico8-project:
 
-My pico8 project ( still thinking about the idea for the game) probably something fantasy, or guns bcs i love weapons. 
+name: GABRIEL GHITA
 
-Description:
-This repository will contain the code and assets for my PICO-8 game.
+declaration: >-
+  I declare that everything I have submitted in this assignment is entirely my
+  own work, with the following exceptions:
 
-Status:
-Work in progress...
+
+# add as many "name+comment" entries as necessary
+# (or remove it altogether if you haven't collaborated with anyone)
+collaboration:
+  - name:
+    comment: >-
+      
+
+# add as many "url+licence+comment" entries as necessary
+# (or remove it altogether if you haven't used any external code)
+code:
+  - comment:
+    url:
+    licence:
+
+
+# add as many "url+licence+comment" entries as necessary
+# (or remove it altogether if you haven't used any external assets)
+assets:
+  - comment:
+    url:
+    licence:
