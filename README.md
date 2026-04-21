@@ -1,29 +1,14 @@
-
 name: GABRIEL GHITA
 
 declaration: >-
   I declare that everything I have submitted in this assignment is entirely my
   own work, with the following exceptions:
 
-
-# add as many "name+comment" entries as necessary
-# (or remove it altogether if you haven't collaborated with anyone)
 collaboration:
-  - name:
+  - name: Google Gemini (AI)
     comment: >-
-      
+      The AI was used as a brainstorming assistant to help organize and 
+      refine the structural layout of my original world-building concepts. 
+      All narrative beats, creature designs, and the "alien savior" 
+      concept are my own original ideas.
 
-# add as many "url+licence+comment" entries as necessary
-# (or remove it altogether if you haven't used any external code)
-code:
-  - comment:
-    url:
-    licence:
-
-
-# add as many "url+licence+comment" entries as necessary
-# (or remove it altogether if you haven't used any external assets)
-assets:
-  - comment:
-    url:
-    licence:
