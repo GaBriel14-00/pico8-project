@@ -5,7 +5,7 @@ declaration: >-
   own work, with the following exceptions:
 
 collaboration:
-  - name: Google Gemini (AI)
+  - name:Assisted by Antigravity
     comment: >-
       The AI was used as a brainstorming assistant to help organize and 
       refine the structural layout of my original world-building concepts. 
