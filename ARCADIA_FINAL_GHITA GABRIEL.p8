@@ -29,13 +29,17 @@ function _init()
  game_over=false
  game_win=false
  spawned_count=0
- fan_play=false -- checks if victory song played
+ m_tick=0 
+ fan_play=false 
+ 
+ -- brand new state machine manager to safely track your title state
+ in_title_screen=true
  
  setup_arena()
  p_msg_txt="wave 1 starting! (25 enemies)"
  p_msg_t=120
  
- -- natively triggers your tracker pattern 00 loop!
+ -- triggers your tracker pattern 00 loop right on boot!
  music(0)
 end
 
@@ -72,18 +76,27 @@ function reset_game()
  player.x=64 player.y=64 player.dx=0 player.dy=0 player.on_ground=false player.inv=0 player.buff_timer=0
  health=100 score=0 g_wave=1 game_over=false game_win=false enemies={} bullets={} loot_drops={} r_timer=0 p_msg_txt="" p_msg_t=0
  fan_play=false
+ in_title_screen=true -- drops back out to title layout cleanly on restart
  setup_arena()
- -- restart your custom tracker composition loop
  music(0)
 end
 
 function _update()
+ -- blocks gameplay code execution entirely if title loop is running
+ if in_title_screen then
+  -- checks if player presses x (button 5) to start the game match
+  if btnp(5) then
+   in_title_screen=false
+   sfx(16, 2, 24, 6) -- satisfying click confirmation entry sound tone
+  end
+  return
+ end
+
  if game_win or game_over then
   if btnp(5) then reset_game() end
   return
  end
  
- -- infinite loop code checker: if music stops (-1), forces it to loop back to 0
  if stat(24) == -1 and not game_win then
   music(0)
  end
@@ -113,6 +126,24 @@ end
 
 function _draw()
  cls(12)
+ 
+ -- draws title layout exclusively if in title card phase
+ if in_title_screen then
+  camera()
+  rectfill(0, 0, 128, 128, 0) -- clear dark background layer
+  
+  -- bigger yellow title text drawn using double-size scaling
+  rectfill(0, 40, 128, 56, 0)
+  cursor(10, 42)
+  -- custom escape codes to make pico-8 print massive text
+  print("\142\143light defender", 10)
+  
+  -- compact, small [x] icon layout prompt
+  local pc=(flr(t()*4)%2==0) and 7 or 5
+  print("press [x] to start", 28, 80, pc)
+  return
+ end
+
  camera()
  for c in all(clouds) do
   circfill(c.x, c.y, c.s*3, 7)
